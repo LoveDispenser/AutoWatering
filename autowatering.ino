@@ -86,7 +86,7 @@ void loop() {
     hum4= round(hum3);
     temp4 = round(temp3);
     
-    hum5 = hum4 + 100;
+    hum5 = hum4 + 200;
   
 
   Serial.println(readI2CRegistepump6bit(0x20, 0)); //read capacitance register
