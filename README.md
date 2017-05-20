@@ -44,8 +44,8 @@ How to do it:
 
 6. Open terminal and write "sudo crontab -e". This will open crontab which can be used to schedule the excecution of programs on Raspberry PI. We want to make it begin logging the sensor data and plotting graph automatically, when the Raspberry PI turns on. Type these commands at the end of the crontab file:
 
- @reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
- */5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
+>@reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
+>*/5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
 
 Example photo http://imgur.com/a/1vtiP
 
@@ -63,6 +63,8 @@ Notes:
 
 The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 when you're reading it.
 
-To setup when the system starts watering the plant, change this line:
-
+To setup when the system starts watering the plant, open up your arduino code and change value "350"  value in this line:
+(350 is what worked for me, but it will be different for you, just check the values your senor is writing to csv file when your plant needs watering and write in that)
 >if (20 < readI2CRegistepump6bit(0x20, 0)  && readI2CRegistepump6bit(0x20, 0)  < 350) {
+
+
