@@ -3,7 +3,7 @@ originally made for a spacebucket
 
 _________________________
 
-Hi, Im sharing my project and I will descripe what you need to do to get it working the way I did it. Im not a programmer, just a hobbyist, I had to learn a lot to do this and Im sure it can be done more professionally, but this stuff works and thats what matters.
+Hi, Im sharing my project and I will describe what you need to do to get it working the way I did it. Im not a programmer, just a hobbyist, I had to learn a lot to do this and Im sure it can be done more professionally, but this stuff works and thats what matters.
 
 _________________________
 
@@ -20,19 +20,19 @@ _________________________
 
 To do autowatering system and temperature+humidity measurement, you will need:
 
-Raspberry PI Zero W
-Arduino Uno
-Water pump + power supply
-Two DHT22 temp and humidity sensors
-Chirp! Soil moisture sensor (important: you need the rugged version, because you will be keeping it in soil for long time)
-Relay board for Arduino
+1. Raspberry PI Zero W
+2. Arduino Uno
+3. Water pump + power supply
+4. Two DHT22 temp and humidity sensors
+5. Chirp! Soil moisture sensor (important: you need the rugged version, because you will be keeping it in soil for long time)
+6. Relay board for Arduino
 
 
 _________________________
 
 How to do it:
 
-1. Install operating system to Raspberry Pi. I used PiBakery. You can configure your wifi settings, username and password, before install with an ease using this. Be sure to install VNC software to the PI also, so you can control the Raspberry PI Over wifi from your desktop PC.
+1. Install operating system to Raspberry Pi. I used PiBakery. You can configure your wifi settings, username and password, before install with an ease using this. Be sure to install VNC software to the PI also, so you can control the Raspberry PI over wifi from your desktop PC.
 
 2. Install Arduino software on Windows or Raspberry PI.
 
@@ -45,6 +45,7 @@ How to do it:
 6. Open terminal and write "sudo crontab -e". This will open crontab which can be used to schedule the excecution of programs on Raspberry PI. We want to make it begin logging the sensor data and plotting graph automatically, when the Raspberry PI turns on. Type these commands at the end of the crontab file:
 
 >@reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
+
 >*/5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
 
 Example photo http://imgur.com/a/1vtiP
