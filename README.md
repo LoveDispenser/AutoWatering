@@ -65,4 +65,4 @@ The humidity in the graph appears as for example 140 instead of 40, this is to s
 
 To setup when the system starts watering the plant, change this line:
 
- if (20 < readI2CRegistepump6bit(0x20, 0)  && readI2CRegistepump6bit(0x20, 0)  < 350) {
+>if (20 < readI2CRegistepump6bit(0x20, 0)  && readI2CRegistepump6bit(0x20, 0)  < 350) {
