@@ -63,9 +63,7 @@ It will also log your python scripts activities to log files in the /home/pi/log
 
 _________________________
 
-Notes:
-
-The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 in your mind when you're reading it.
+Setup:
 
 To setup when the system starts watering the plant, open up your arduino code and change value "350" to something that works for you in this line:
 
@@ -79,3 +77,12 @@ To change the time for the pump to be working, change value "400000" to your des
 
 >(this value is milliseconds, turn on your pump to water your plants, start the timer and when you see the runoff, take the time it took to water your plant and convert it to milliseconds)
 
+_________________________
+
+Notes:
+
+The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 in your mind when you're reading it.
+
+The external power supply for relay board is required to avoid electromagnetic interference (or something like that) comming from the pump motor and disturbing the moisture sensor signal
+
+The 4.7k resistors on Chirp's signal wires are also for signal stability purposes or something.
