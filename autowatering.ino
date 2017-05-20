@@ -12,7 +12,7 @@ DHT dht2(DHTPIN2, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
 
 #define pump 7
 long previousMillis = 0;
-long interval = 60000;   
+long interval = 60000;   // This is how often to send data to raspberry PI to log in milliseconds
 
 
 
