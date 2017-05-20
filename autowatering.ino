@@ -1,20 +1,10 @@
-/*
-Chirp - arduino example
 
-Connection 
-Chirp pin 1 - no connection
-Chirp pin 2 - Arduino VCC
-Chirp pin 3 - Arduino A5
-Chirp pin 4 - Arduino A4
-Chirp pin 5 - Arduino pin 2
-Chirp pin 6 - Arduino GND
-*/
 
 #include <Wire.h>
 
 //DHT-------
 #include <DHT.h>;
-#define DHTPIN 13     // what pin we're connected to
+#define DHTPIN 13
 #define DHTPIN2 12  
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
 DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
@@ -23,8 +13,8 @@ DHT dht2(DHTPIN2, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
 
 
 #define pump 7
-long previousMillis = 0;        // will store last time LED was updated
-long interval = 60000;   
+long previousMillis = 0;  
+long interval = 60000;   // this is how often to send data to log in milliseconds
 
 
 
@@ -78,7 +68,7 @@ void setup() {
 void loop() {
     unsigned long currentMillis = millis();
   if(currentMillis - previousMillis > interval) {
-    // save the last time you blinked the LED 
+
     previousMillis = currentMillis;   
 
   Serial.println(readI2CRegistepump6bit(0x20, 0)); //read capacitance register
