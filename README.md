@@ -67,11 +67,11 @@ To setup when the system starts watering the plant, open up your arduino code an
 
 >if (20 < readI2CRegistepump6bit(0x20, 0)  && readI2CRegistepump6bit(0x20, 0)  < 350) {
 
->(350 is what worked for me, but it will be different for you, just check the values your senor is writing to csv file when your plant needs watering and write in that)
+>(350 is what worked for me, but it will be different for you, just check the values your sensor is writing to csv file when your plant needs watering and write in that)
 
 To change the time for the pump to be working, change value "400000" to your desired value in this line:
 
 >delay(400000);
 
->(this value is milliseconds, turn on your pump to water your plants, start the timer and when you see the runoff, convert the time it took to water your plant and convert it to milliseconds)
+>(this value is milliseconds, turn on your pump to water your plants, start the timer and when you see the runoff, take the time it took to water your plant and convert it to milliseconds)
 
