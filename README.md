@@ -32,8 +32,6 @@ _________________________
 
 How to do it:
 
-Connect everything like in the picture here:
-
 1. Install operating system to Raspberry Pi. I used PiBakery. You can configure your wifi settings, username and password, before install with an ease using this. Be sure to install VNC software to the PI also, so you can control the Raspberry PI Over wifi from your desktop PC.
 
 2. Install Arduino software on Windows or Raspberry PI.
@@ -46,10 +44,14 @@ Connect everything like in the picture here:
 
 6. Open terminal and write "sudo crontab -e". This will open crontab which can be used to schedule the excecution of programs on Raspberry PI. We want to make it begin logging the sensor data and plotting graph automatically, when the Raspberry PI turns on. Type these commands at the end of the crontab file:
 
-@reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
-*/5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
+ @reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
+ */5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
+
+ First command will run the sensor logging script, which creates a new .csv file with current date and starts writing sensor data.
+ /Second command will excecute plotting script every 5 minutes. It will read the latest .csv file in the folder and plot its data and save .png file with the name of the csv file (also it should also save onto plot.png file everytime but it somehow doesn't work lol)
 
 
+7. Connect everything like in this picture: and everything should work now. 
 
 
 
