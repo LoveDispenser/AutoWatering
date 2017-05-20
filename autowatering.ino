@@ -44,6 +44,7 @@ float hum3;
 float temp3; 
 int hum4;
 int temp4;
+int hum5;
 //DHT-------
 
 void setup() {
@@ -84,11 +85,13 @@ void loop() {
     
     hum4= round(hum3);
     temp4 = round(temp3);
+    
+    hum5 = hum4 + 100;
   
 
   Serial.println(readI2CRegistepump6bit(0x20, 0)); //read capacitance register
  
-    Serial.println(hum4 / 2);
+    Serial.println(hum5 / 2);
 
     Serial.println(temp4 / 2);
 
