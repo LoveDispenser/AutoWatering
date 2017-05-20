@@ -16,6 +16,8 @@ Automatic watering works like this- it gets soil humidity sensor readings from t
 
 To get the temperature and moisture readings, it uses 2 DHT22 sensors, gets the average values, rounds the number and thats your temperature and humidity.
 
+To use it without Raspberry PI, just skip all the Raspberry PI parts.
+
 _________________________
 
 To do autowatering system and temperature+humidity measurement, you will need:
