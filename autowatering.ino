@@ -1,10 +1,8 @@
-
-
 #include <Wire.h>
 
 //DHT-------
 #include <DHT.h>;
-#define DHTPIN 13
+#define DHTPIN 13   
 #define DHTPIN2 12  
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
 DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
@@ -13,8 +11,8 @@ DHT dht2(DHTPIN2, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
 
 
 #define pump 7
-long previousMillis = 0;  
-long interval = 60000;   // this is how often to send data to log in milliseconds
+long previousMillis = 0;
+long interval = 60000;   
 
 
 
@@ -38,12 +36,14 @@ unsigned int readI2CRegistepump6bit(int addr, int reg) {
 
 //DHT-------
 int chk;
-float hum;  //Stores humidity value
-float temp; //Stores temperature value
-float hum2;  //Stores humidity value
-float temp2; //Stores temperature value
-float hum3;  //Stores humidity value
-float temp3; //Stores temperature value
+float hum;
+float temp;
+float hum2; 
+float temp2; 
+float hum3;  
+float temp3; 
+int hum4;
+int temp4;
 //DHT-------
 
 void setup() {
@@ -70,15 +70,8 @@ void loop() {
   if(currentMillis - previousMillis > interval) {
 
     previousMillis = currentMillis;   
-
-  Serial.println(readI2CRegistepump6bit(0x20, 0)); //read capacitance register
- 
-    Serial.println(hum3 / 2);
-
-    Serial.println(temp3 / 2);
-
-
-    //Read data and store it to variables hum and temp
+    
+        //Read data and store it to variables hum and temp
     hum = dht.readHumidity();
     temp= dht.readTemperature();
         //Read data and store it to variables hum and temp
@@ -88,7 +81,19 @@ void loop() {
     hum3= hum + hum2;
     
     temp3=temp + temp2;
+    
+    hum4= round(hum3);
+    temp4 = round(temp3);
   
+
+  Serial.println(readI2CRegistepump6bit(0x20, 0)); //read capacitance register
+ 
+    Serial.println(hum4 / 2);
+
+    Serial.println(temp4 / 2);
+
+
+
   }
 delay(1000);
 int watering = 0;
@@ -118,7 +123,6 @@ if (readI2CRegistepump6bit(0x20, 0) > 1500){
  }
 
 }
-
 
 
 
