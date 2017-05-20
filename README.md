@@ -86,3 +86,5 @@ The humidity in the graph appears as for example 140 instead of 40, this is to s
 The external power supply for relay board is required to avoid electromagnetic interference (or something like that) comming from the pump motor and disturbing the moisture sensor signal
 
 The 4.7k resistors on Chirp's signal wires are also for signal stability purposes or something.
+
+Feel free to commit any enhancements
