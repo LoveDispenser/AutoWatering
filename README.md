@@ -47,8 +47,8 @@ How to do it:
  @reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
  */5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
 
- First command will run the sensor logging script, which creates a new .csv file with current date and starts writing sensor data.
- /Second command will excecute plotting script every 5 minutes. It will read the latest .csv file in the folder and plot its data and save .png file with the name of the csv file (also it should also save onto plot.png file everytime but it somehow doesn't work lol)
+First command will run the sensor logging script, which creates a new .csv file with current date and starts writing sensor data.
+Second command will excecute plotting script every 5 minutes. It will read the latest .csv file in the folder and plot its data and save .png file with the name of the csv file (also it should also save onto plot.png file everytime but it somehow doesn't work lol)
 
 
 7. Connect everything like in this picture: and everything should work now. 
