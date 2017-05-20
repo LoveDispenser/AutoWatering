@@ -1,5 +1,5 @@
-# LoveDispensers AutoWatering
-Automatic watering system + temperature and humidity measurement
+# LoveDispensers Automatic watering system + temperature and humidity measurement
+originally made for a spacebucket
 
 _________________________
 
@@ -47,11 +47,22 @@ How to do it:
  @reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
  */5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
 
+Example photo http://imgur.com/a/1vtiP
+
 First command will run the sensor logging script, which creates a new .csv file with current date and starts writing sensor data.
 Second command will excecute plotting script every 5 minutes. It will read the latest .csv file in the folder and plot its data and save .png file with the name of the csv file (also it should also save onto plot.png file everytime but it somehow doesn't work lol)
+It will also log your python scripts activities to log files in the /home/pi/logs folder. I'd suggest you create that folder before running scripts.
 
 
 7. Connect everything like in this picture: and everything should work now. 
 
 
+_________________________
 
+Notes:
+
+The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 when you're reading it.
+
+To setup when the system starts watering the plant, change this line:
+
+ if (20 < readI2CRegistepump6bit(0x20, 0)  && readI2CRegistepump6bit(0x20, 0)  < 350) {
