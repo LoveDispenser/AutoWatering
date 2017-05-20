@@ -1,2 +1,55 @@
-# AutoWatering
+# LoveDispensers AutoWatering
 Automatic watering system + temperature and humidity measurement
+
+_________________________
+
+Hi, Im sharing my project and I will descripe what you need to do to get it working the way I did it. Im not a programmer, just a hobbyist, I had to learn a lot to do this and Im sure it can be done more professionally, but this stuff works and thats what matters.
+
+_________________________
+
+Brief overview:
+
+Its very basic.
+Raspberry PI powers the Arduino through usb cable. Arduino controls relay to water the plants and sends sensor data to Raspberry PI, which logs it, stores in .csv files and plots it every 5 minutes and saves .png file of the graph. 
+
+Automatic watering works like this- it gets soil humidity sensor readings from the Chirp soil moisture sensor, if it is below the user-defined value, it closes the relay, and the pump stars working and watering the plants. 
+
+To get the temperature and moisture readings, it uses 2 DHT22 sensors, gets the average values, rounds the number and thats your temperature and humidity.
+
+_________________________
+
+To do autowatering system and temperature+humidity measurement, you will need:
+
+Raspberry PI Zero W
+Arduino Uno
+Water pump + power supply
+Two DHT22 temp and humidity sensors
+Chirp! Soil moisture sensor (important: you need the rugged version, because you will be keeping it in soil for long time)
+Relay board for Arduino
+
+
+_________________________
+
+How to do it:
+
+Connect everything like in the picture here:
+
+1. Install operating system to Raspberry Pi. I used PiBakery. You can configure your wifi settings, username and password, before install with an ease using this. Be sure to install VNC software to the PI also, so you can control the Raspberry PI Over wifi from your desktop PC.
+
+2. Install Arduino software on Windows or Raspberry PI.
+
+3. Copy the Arduino code from GitHub page to your Arduino software and upload it to Arduino (you will need to install the DHT library for your Arduino compiler software, found here: https://github.com/adafruit/DHT-sensor-library . 
+
+4. Set-up webserver for your Raspberry PI so you can put and get files from it over LAN. I used this tutorial for Samba - https://pimylifeup.com/raspberry-pi-nas/ . If you get file names scrambled, its because Linux can have some symbols in files names that windows can't use. Check the comments for that tutorial for some help.
+
+5. Get the python scripts from GitHub and place them to your raspberry PI /home/pi/csvdata
+
+6. Open terminal and write "sudo crontab -e". This will open crontab which can be used to schedule the excecution of programs on Raspberry PI. We want to make it begin logging the sensor data and plotting graph automatically, when the Raspberry PI turns on. Type these commands at the end of the crontab file:
+
+@reboot sudo python /home/pi/csvdata/logging.py > /home/pi/logs/log.txt
+*/5 * * * * sudo python /home/pi/csvdata/plotting.py > /home/pi/logs/plotlog.txt
+
+
+
+
+
