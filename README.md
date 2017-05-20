@@ -55,8 +55,11 @@ Second command will excecute plotting script every 5 minutes. It will read the l
 It will also log your python scripts activities to log files in the /home/pi/logs folder. I'd suggest you create that folder before running scripts.
 
 
-7. Connect everything like in this picture: and everything should work now. 
+7. Connect everything like in this picture:
 
+8. Stick your moisture sensor in your pot, get your hoses for watering in your pots, place the DHT22 sensors in your area.
+
+9. Smoke a fat one
 
 _________________________
 
