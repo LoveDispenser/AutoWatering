@@ -89,4 +89,4 @@ The external power supply for relay board is required to avoid electromagnetic i
 
 The 4.7k resistors on Chirp's signal wires are also for signal stability purposes or something.
 
-Feel free to commit any enhancements
+Feel free to commit any improvements
