@@ -61,7 +61,7 @@ _________________________
 
 Notes:
 
-The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 when you're reading it.
+The humidity in the graph appears as for example 140 instead of 40, this is to separate the graph itself from the temperature graph. Just remove the 1 in your mind when you're reading it.
 
 To setup when the system starts watering the plant, open up your arduino code and change value "350" to something that works for you in this line:
 
