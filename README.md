@@ -1,7 +1,7 @@
 # LoveDispensers Automatic watering system + temperature and humidity measurement
 Originally made for a spacebucket
 
-Gallery http://imgur.com/a/1vtiP
+Gallery http://imgur.com/a/b6C1Y
 _________________________
 
 Hi, Im sharing my project and I will describe what you need to do to get it working the way I did it. Im not a programmer, just a hobbyist, I had to learn a lot to do this and Im sure it can be done more professionally, but this stuff works and thats what matters.
